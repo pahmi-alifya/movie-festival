@@ -1,13 +1,15 @@
 <template>
-  <main>
-    <div><h1 style="color: red">List</h1></div>
-  </main>
+  <div>
+    <h1>List</h1>
+  </div>
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from "vue";
+
+export default defineComponent({
   setup() {
     return {};
   },
-};
+});
 </script>

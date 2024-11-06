@@ -1,7 +1,6 @@
-import { createVuetify } from "vuetify";
-
-export default createVuetify({
+const vuetifyTheme = {
   theme: {
+    defaultTheme: "dark",
     themes: {
       dark: {
         colors: {
@@ -22,4 +21,6 @@ export default createVuetify({
       },
     },
   },
-});
+};
+
+export default vuetifyTheme;
