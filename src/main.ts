@@ -1,11 +1,25 @@
-import './assets/main.css'
+import "vuetify/styles";
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from "vue";
+import VueCookies from "vue-cookies";
+import App from "./App.vue";
+import router from "./router";
+import vuetifyTheme from "./lib/vuetify";
 
-const app = createApp(App)
+import { createVuetify } from "vuetify";
+import * as components from "vuetify/components";
+import * as directives from "vuetify/directives";
 
-app.use(router)
+const vuetify = createVuetify({
+  components,
+  directives,
+  theme: vuetifyTheme,
+});
 
-app.mount('#app')
+const app = createApp(App);
+
+app.use(vuetify);
+app.use(VueCookies);
+app.use(router);
+
+app.mount("#app");
