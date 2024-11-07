@@ -17,11 +17,5 @@ const routes = [
     meta: { authorized: false },
     component: () => import("../views/home/list.vue"),
   },
-  {
-    path: "/detail/:id",
-    name: "detail",
-    meta: { authorized: false },
-    component: () => import("../views/home/detail.vue"),
-  },
 ];
 export default routes;
