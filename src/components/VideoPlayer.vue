@@ -1,5 +1,5 @@
 <template>
-  <v-dialog :value="showVideoPlayer" fullscreen>
+  <v-dialog v-model="showVideoPlayer" fullscreen>
     <v-card tile>
       <v-toolbar dense>
         <v-toolbar-title>
@@ -8,9 +8,13 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn elevation="0" icon @click="closePlayer">
-          <v-icon>mdi-chevron-down</v-icon>
-        </v-btn>
+        <v-btn
+          text="Close"
+          @click="
+            $emit('closeVideoPlayer');
+            isVideoReady = false;
+          "
+        ></v-btn>
       </v-toolbar>
 
       <v-card-text>
@@ -44,22 +48,22 @@
       </v-card-text>
 
       <!-- Similiar Movies section -->
-      <div class="mx-5">
+      <!-- <div class="mx-5">
         <MovieSlides
           :show="similiarMovies.length > 0"
           :title="'Similar Movies'"
           :movies="similiarMovies"
         />
-      </div>
+      </div> -->
     </v-card>
   </v-dialog>
 </template>
 
 <script>
-import { defineComponent, ref, computed, PropType } from "vue";
+import { defineComponent, ref, computed } from "vue";
 import { useQuery } from "@tanstack/vue-query";
 import { fetchMovies } from "@/api/list";
-import MovieSlides from "./MovieSlides.vue";
+// import MovieSlides from "./MovieSlides.vue";
 
 export default defineComponent({
   name: "VideoPlayer",
@@ -74,7 +78,7 @@ export default defineComponent({
     },
   },
   components: {
-    MovieSlides,
+    // MovieSlides,
   },
   setup(props) {
     const isVideoReady = ref(false);
@@ -94,15 +98,9 @@ export default defineComponent({
       );
     });
 
-    const closePlayer = () => {
-      isVideoReady.value = false;
-      props.$emit("closeVideoPlayer");
-    };
-
     return {
       isVideoReady,
       similiarMovies,
-      closePlayer,
       isLoading,
       isError,
     };

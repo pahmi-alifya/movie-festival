@@ -34,18 +34,19 @@
     </v-slide-group>
 
     <!-- Video player -->
-    <!-- <VideoPlayer
+    <VideoPlayer
       v-if="showVideoPlayer"
       ref="videoPlayer"
       :showVideoPlayer="showVideoPlayer"
       :videoPlayerDetails="videoPlayerDetails"
       @closeVideoPlayer="showVideoPlayer = false"
-    /> -->
+    />
   </div>
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
+import VideoPlayer from "./VideoPlayer.vue";
 
 export default defineComponent({
   name: "MovieSlides",
@@ -64,7 +65,7 @@ export default defineComponent({
     },
   },
   components: {
-    // VideoPlayer,
+    VideoPlayer,
   },
   setup() {
     const selected = ref(0);
