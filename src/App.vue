@@ -8,6 +8,7 @@
 <script lang="ts">
 import { RouterView } from "vue-router";
 import appBar from "./components/AppBar.vue";
+import { initializeSession } from "./utils/services";
 
 export default {
   name: "App",
@@ -18,7 +19,7 @@ export default {
     //
   }),
   beforeCreate() {
-    // initializeSession();
+    initializeSession();
   },
 };
 </script>

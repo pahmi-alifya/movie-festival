@@ -10,7 +10,9 @@
       <v-list>
         <v-list-item>
           <v-list-item-action>
-            <button @click="handleAuth">Login</button>
+            <button @click="handleAuth">
+              {{ currentUser.name ? "Logout" : "Login" }}
+            </button>
           </v-list-item-action>
         </v-list-item>
       </v-list>
@@ -19,6 +21,7 @@
 </template>
 
 <script>
+import { signOut } from "@/utils/services";
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -32,8 +35,11 @@ export default defineComponent({
   },
   methods: {
     handleAuth() {
+      if (this.$store.getters.currentUser.name) {
+        alert("Berhasil Logout");
+        return signOut();
+      }
       this.$router.push("/login");
-      console.log("User signed out");
     },
   },
 });

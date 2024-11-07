@@ -6,12 +6,6 @@ const routes = [
     component: () => import("../views/auth/login.vue"),
   },
   {
-    path: "/register",
-    name: "register",
-    meta: { authorized: false },
-    component: () => import("../views/auth/register.vue"),
-  },
-  {
     path: "/",
     name: "home",
     meta: { authorized: false },
