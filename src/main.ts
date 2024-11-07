@@ -1,5 +1,3 @@
-import "vuetify/styles";
-
 import { createApp } from "vue";
 import VueCookies from "vue-cookies";
 import App from "./App.vue";
@@ -10,6 +8,9 @@ import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import { VueQueryPlugin } from "@tanstack/vue-query";
+
+import "vuetify/styles";
+import "@mdi/font/css/materialdesignicons.css";
 
 const vuetify = createVuetify({
   components,
