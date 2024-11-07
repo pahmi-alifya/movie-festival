@@ -26,6 +26,12 @@ yarn
 yarn dev
 ```
 
+### Running the API for Development
+
+```sh
+yarn api
+```
+
 ### Type-Check, Compile and Minify for Production
 
 ```sh
