@@ -69,9 +69,9 @@
         </v-card>
       </v-flex>
     </div>
-    <!-- <v-dialog v-model="showSignUpForm" fullscreen>
-      <signUpForm @closeForm="showSignUpForm = false" />
-    </v-dialog> -->
+    <v-dialog v-model="showSignUpForm" fullscreen>
+      <SignUp @closeForm="showSignUpForm = false" />
+    </v-dialog>
   </v-container>
 </template>
 
@@ -80,12 +80,11 @@ import { defineComponent, ref, onBeforeMount } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { postLogin } from "@/api/auth";
-
-// import signUpForm from "../components/userManagement/signUpForm.vue";
+import SignUp from "@/components/SignUp.vue";
 
 export default defineComponent({
   name: "UserAuthComponent",
-  // components: { signUpForm },
+  components: { SignUp },
   setup() {
     const store = useStore();
     const router = useRouter();
@@ -118,6 +117,8 @@ export default defineComponent({
         });
 
         router.replace({ path: "/" });
+      } else {
+        alert("Username/Password is wrong");
       }
     };
 
